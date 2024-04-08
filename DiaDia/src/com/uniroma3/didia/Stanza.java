@@ -1,6 +1,4 @@
-
-
-
+package com.uniroma3.didia;
 /**
  * Classe Stanza - una stanza in un gioco di ruolo.
  * Una stanza e' un luogo fisico nel gioco.
