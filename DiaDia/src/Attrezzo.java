@@ -23,7 +23,7 @@ public class Attrezzo {
 	 */
 	public Attrezzo(String nome, int peso) {
 		this.peso = peso;
-		this.nome = nomeyy;
+		this.nome = nome;
 	}
 
 	/**
