@@ -38,6 +38,7 @@ public class DiaDia {
 	public void gioca() {
 		String istruzione; 
 		Scanner scannerDiLinee;
+		String tuMADREString;
 
 		System.out.println(MESSAGGIO_BENVENUTO);
 		scannerDiLinee = new Scanner(System.in);		
