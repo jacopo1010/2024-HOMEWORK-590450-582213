@@ -16,6 +16,7 @@ public class Borsa {
 		this.attrezzi = new Attrezzo[10]; // speriamo bastino...
 		this.numeroAttrezzi = 0;
 	}
+	
 	public boolean addAttrezzo(Attrezzo attrezzo) {
 		if (this.getPeso() + attrezzo.getPeso() > this.getPesoMax())
 			return false;
@@ -25,9 +26,11 @@ public class Borsa {
 		this.numeroAttrezzi++;
 		return true;
 	}
+	
 	public int getPesoMax() {
 		return pesoMax;
 	}
+	
 	public Attrezzo getAttrezzo(String nomeAttrezzo) {
 		Attrezzo a = null;
 		for (int i= 0; i<this.numeroAttrezzi; i++)
@@ -42,18 +45,28 @@ public class Borsa {
 			peso += this.attrezzi[i].getPeso();
 		return peso;
 	}
+	
 	public boolean isEmpty() {
 		return this.numeroAttrezzi == 0;
 	}
+	
 	public boolean hasAttrezzo(String nomeAttrezzo) {
 		return this.getAttrezzo(nomeAttrezzo)!=null;
 	}
+	
+	 /**
+	  * Prende il nome dell'attrezzo che si vuole rimuovere e elimina il primo trovato
+	  * @param nomeAttrezzo
+	  * @return Attrezzo rimosso
+	  */
 	public Attrezzo removeAttrezzo(String nomeAttrezzo) {
 		Attrezzo a = null;
+		boolean ver = false;
 		for (Attrezzo attrezzo : attrezzi) {
-			if (attrezzo != null && attrezzo.getNome().equals(nomeAttrezzo)) {
+			if (ver == false && attrezzo != null && attrezzo.getNome().equals(nomeAttrezzo)) {
 				a = attrezzo;
 				attrezzo = null;
+				ver = true;
 			}
 		}
 		return a;
