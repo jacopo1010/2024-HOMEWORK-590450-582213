@@ -111,11 +111,33 @@ public class DiaDia {
 		System.out.println("Grazie di aver giocato!");  // si desidera smettere
 	}
 	
-   private void prendi(String nomeAttrezzo) {
-	    if(nomeAttrezzo == null)
-	    System.out.println("");
-   }
+	private void prendi(String nomeAttrezzo) {
+		if(nomeAttrezzo == null)
+			System.out.println("Quale attrezzo vuoi prendere? ");
+		Attrezzo appAttrezzo = null;
+		appAttrezzo = this.partita.getStanzaCorrente().getAttrezzo(nomeAttrezzo);
+		if (appAttrezzo == null) 
+			System.out.println("Attrezzo inesistente!");
+		else {
+			this.partita.getGiocatore().getBorsa().addAttrezzo(appAttrezzo);
+			this.partita.getStanzaCorrente().removeAttrezzo(appAttrezzo);
+		}
+	}
+	
+	private void posa(String nomeAttrezzo) {
+		if(nomeAttrezzo == null)
+		System.out.println("Quale attrezzo vuoi posare? ");
+		Attrezzo appAttrezzo = null;
+		appAttrezzo = this.partita.getGiocatore().getBorsa().getAttrezzo(nomeAttrezzo);
+		if (appAttrezzo == null) 
+			System.out.println("Attrezzo inesistente!");
+		else {
+			this.partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
+			this.partita.getStanzaCorrente().addAttrezzo(appAttrezzo);
+		}
+	}
 
+	
 	public static void main(String[] argc) {
 		DiaDia gioco = new DiaDia();
 		gioco.gioca();

@@ -50,9 +50,15 @@ public class Borsa {
 	}
 	public Attrezzo removeAttrezzo(String nomeAttrezzo) {
 		Attrezzo a = null;
-		// ---> TODO (implementare questo metodo) <---
+		for (Attrezzo attrezzo : attrezzi) {
+			if (attrezzo != null && attrezzo.getNome().equals(nomeAttrezzo)) {
+				a = attrezzo;
+				attrezzo = null;
+			}
+		}
 		return a;
 	}
+	
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 		if (!this.isEmpty()) {
