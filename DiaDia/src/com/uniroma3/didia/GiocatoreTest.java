@@ -6,13 +6,18 @@ import org.junit.Test;
 
 public class GiocatoreTest {
       Giocatore playerGiocatore = new Giocatore();
-	
+      Attrezzo app = new Attrezzo("spada", 7);
+	  Borsa gucci = new Borsa();
+	  
 	@Test
 	public void testAggiungiInborsa() {
-	  Attrezzo app = new Attrezzo("spada", 7);
-	  Borsa gucci = new Borsa();
+	  playerGiocatore.setBorsa(gucci);
 	  playerGiocatore.aggiungiInBorsa(app);
 	  assertTrue(gucci.hasAttrezzo("spada"));
 	}
-
+   
+	@Test
+	public void testAggiungiInBorsaNull() {
+	
+	}
 }

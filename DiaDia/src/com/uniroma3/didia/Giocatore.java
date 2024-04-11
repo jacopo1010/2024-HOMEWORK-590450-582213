@@ -25,5 +25,9 @@ public class Giocatore {
 	public void aggiungiInBorsa(Attrezzo attr) {
 		 this.borsa.addAttrezzo(attr);
 	}
+
+	public void setBorsa(Borsa borsa) {
+		this.borsa = borsa;
+	}
 	
 }
