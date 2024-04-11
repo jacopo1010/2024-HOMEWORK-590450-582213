@@ -1,4 +1,4 @@
-package it.uniroma3.didia;
+package it.uniroma3.diadia;
 
 
 import java.util.Scanner;
