@@ -52,14 +52,6 @@ public class DiaDia {
 		do {
 			istruzione = ioConsole.leggiRiga();
 		} while (!processaIstruzione(istruzione));
-		/*String istruzione; 
-		Scanner scannerDiLinee;
-
-		
-		scannerDiLinee = new Scanner(System.in);		
-		do		
-			istruzione = scannerDiLinee.nextLine();
-		while (!processaIstruzione(istruzione));*/
 	}   
 
 
