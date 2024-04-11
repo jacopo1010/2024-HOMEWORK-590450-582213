@@ -15,11 +15,20 @@ public class GiocatoreTest {
 	public void testAggiungiInborsa() {
 	  playerGiocatore.setBorsa(gucci);
 	  playerGiocatore.aggiungiInBorsa(app);
-	  assertTrue(gucci.hasAttrezzo("spada"));
+	  assertEquals(app, gucci.getAttrezzo(app.getNome()));
 	}
    
 	@Test
 	public void testAggiungiInBorsaNull() {
+		 playerGiocatore.setBorsa(gucci);
+		 playerGiocatore.aggiungiInBorsa(app);
+		 assertNotNull(gucci.hasAttrezzo(app.getNome()));
+	}
 	
+	@Test
+	public void testAggiungiInBorsaAttrezzoSbagliato() {
+		 playerGiocatore.setBorsa(gucci);
+		 playerGiocatore.aggiungiInBorsa(app);
+		 assertFalse(gucci.hasAttrezzo("Martello"));
 	}
 }
