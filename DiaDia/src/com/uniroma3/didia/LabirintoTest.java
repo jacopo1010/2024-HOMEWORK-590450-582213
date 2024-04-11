@@ -11,10 +11,19 @@ public class LabirintoTest {
 	@Test
 	public void testStanzaVincente() {
 		labirinto.creaStanze();
-		Stanza atrio = new Stanza("Atrio");
-		Stanza biblioteca = new Stanza("Biblioteca");
-		biblioteca.impostaStanzaAdiacente("sud", atrio);
-		assertEquals(biblioteca.getNome(), labirinto.getStanzaVincente().getNome());
+		assertEquals("Biblioteca", labirinto.getStanzaVincente().getNome());
 	}
+	
+    @Test
+    public void testStanzaVincenteSbagliata() {
+    	labirinto.creaStanze();
+    	assertNotEquals("atrio", labirinto.getStanzaVincente().getNome());
+    }
+    
+    @Test
+    public void testStanzaVincenteNull() {
+    	labirinto.creaStanze();
+    	assertNotNull(labirinto.getStanzaVincente());
+    }
 
 }
