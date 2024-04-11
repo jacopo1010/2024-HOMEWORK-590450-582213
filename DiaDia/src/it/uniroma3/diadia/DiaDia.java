@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import it.uniroma3.diadia.giocatore.Borsa;
 
 
 /**
@@ -31,7 +32,7 @@ public class DiaDia {
 			"o regalarli se pensi che possano ingraziarti qualcuno.\n\n"+
 			"Per conoscere le istruzioni usa il comando 'aiuto'.";
 	
-	static final private String[] elencoComandi = {"vai", "aiuto", "fine", "prendi", "posa"};
+	static final private String[] elencoComandi = {"vai", "aiuto", "fine", "prendi", "posa", "inventario"};
 
 	private Partita partita;
 
@@ -71,6 +72,8 @@ public class DiaDia {
 				this.prendi(comandoDaEseguire.getParametro());
 			else if(comandoDaEseguire.getNome().equals("posa"))
 				this.posa(comandoDaEseguire.getParametro());
+			else if(comandoDaEseguire.getNome().equals("inventario"))
+				this.inventario();
 			else
 				System.out.println("Comando sconosciuto");
 		}
@@ -157,6 +160,12 @@ public class DiaDia {
 			System.out.println("hai posato l'attrezzo!");
 		}
 	}
+	
+	private void inventario() {
+		System.out.println("Apri la tua borsa e trovi:");
+		System.out.println(this.partita.getGiocatore().getBorsa().toString());
+	}
+
 
 	
 	public static void main(String[] argc) {
