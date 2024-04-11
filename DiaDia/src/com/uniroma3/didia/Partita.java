@@ -21,6 +21,7 @@ public class Partita {
 		this.finita = false;
 		this.cfu = CFU_INIZIALI;
 		this.labirinto.creaStanze();
+		this.stanzaCorrente = this.labirinto.getIniziale();
 	}
     
 	
@@ -29,7 +30,7 @@ public class Partita {
 	}
 
 	public Stanza getStanzaCorrente() {
-		return this.stanzaCorrente = labirinto.getIniziale();
+		return this.stanzaCorrente;
 	}
 	
 	
