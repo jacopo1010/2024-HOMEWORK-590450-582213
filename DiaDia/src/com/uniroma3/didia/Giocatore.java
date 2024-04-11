@@ -15,11 +15,15 @@ public class Giocatore {
 	}
 
 	public void setCfu(int cfu) {
-		this.cfu = cfu;		
+		this.cfu = cfu;	
 	}
 
 	public Borsa getBorsa() {
 		return borsa;
+	}
+	
+	public void aggiungiInBorsa(Attrezzo attr) {
+		 this.borsa.addAttrezzo(attr);
 	}
 	
 }

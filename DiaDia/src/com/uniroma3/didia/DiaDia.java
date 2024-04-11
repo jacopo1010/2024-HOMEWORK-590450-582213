@@ -64,6 +64,10 @@ public class DiaDia {
 				this.vai(comandoDaEseguire.getParametro());
 			else if (comandoDaEseguire.getNome().equals("aiuto"))
 				this.aiuto();
+			else if(comandoDaEseguire.getNome().equals("prendi"))
+				this.prendi(comandoDaEseguire.getParametro());
+			else if(comandoDaEseguire.getNome().equals("posa"))
+				this.posa(comandoDaEseguire.getParametro());
 			else
 				System.out.println("Comando sconosciuto");
 		}
@@ -110,7 +114,13 @@ public class DiaDia {
 	private void fine() {
 		System.out.println("Grazie di aver giocato!");  // si desidera smettere
 	}
-	
+    
+	/**
+	 * metodo usato come comando 
+	 * dall'utente che prende un attrezzo e lo mette nella borsa
+	 * e rimuove l'attrezzo dalla stanza corrente.
+	 * @param nomeAttrezzo
+	 */
 	private void prendi(String nomeAttrezzo) {
 		if(nomeAttrezzo == null)
 			System.out.println("Quale attrezzo vuoi prendere? ");
@@ -119,14 +129,21 @@ public class DiaDia {
 		if (appAttrezzo == null) 
 			System.out.println("Attrezzo inesistente!");
 		else {
-			this.partita.getGiocatore().getBorsa().addAttrezzo(appAttrezzo);
+			this.partita.getGiocatore().aggiungiInBorsa(appAttrezzo);
 			this.partita.getStanzaCorrente().removeAttrezzo(appAttrezzo);
+			System.out.println("hai messo l'attrezzo in borsa!");
 		}
 	}
-	
+    
+	/**
+	 * metodo usato come comando dall'utente
+	 * che gli permette di rimuovere un attrezzo dalla borsa
+	 * e metterlo nella stanza corrente.
+	 * @param nomeAttrezzo
+	 */
 	private void posa(String nomeAttrezzo) {
 		if(nomeAttrezzo == null)
-		System.out.println("Quale attrezzo vuoi posare? ");
+			System.out.println("Quale attrezzo vuoi posare? ");
 		Attrezzo appAttrezzo = null;
 		appAttrezzo = this.partita.getGiocatore().getBorsa().getAttrezzo(nomeAttrezzo);
 		if (appAttrezzo == null) 
@@ -134,6 +151,7 @@ public class DiaDia {
 		else {
 			this.partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
 			this.partita.getStanzaCorrente().addAttrezzo(appAttrezzo);
+			System.out.println("hai posato l'attrezzo!");
 		}
 	}
 
