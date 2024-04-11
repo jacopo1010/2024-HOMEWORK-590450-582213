@@ -3,6 +3,7 @@ package com.uniroma3.didia;
 
 import java.util.Scanner;
 
+
 /**
  * Classe principale di diadia, un semplice gioco di ruolo ambientato al dia.
  * Per giocare crea un'istanza di questa classe e invoca il letodo gioca
@@ -109,6 +110,10 @@ public class DiaDia {
 	private void fine() {
 		System.out.println("Grazie di aver giocato!");  // si desidera smettere
 	}
+	
+   private void prendi() {
+	   
+   }
 
 	public static void main(String[] argc) {
 		DiaDia gioco = new DiaDia();
