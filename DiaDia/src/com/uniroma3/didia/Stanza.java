@@ -167,7 +167,7 @@ public class Stanza {
 	public boolean removeAttrezzo(Attrezzo attrezzo) {
 		boolean ver = false;
 		for (int i = 0; i < attrezzi.length && ver == false; i++) {
-			if (attrezzi[i] != null && attrezzi[i].getNome().equals(attrezzo)) {
+			if (attrezzi[i] != null && attrezzi[i].getNome().equals(attrezzo.getNome())) {
 				attrezzi[i] = null;
 				ver = true;
 			}

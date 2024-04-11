@@ -111,8 +111,9 @@ public class DiaDia {
 		System.out.println("Grazie di aver giocato!");  // si desidera smettere
 	}
 	
-   private void prendi() {
-	   
+   private void prendi(String nomeAttrezzo) {
+	    if(nomeAttrezzo == null)
+	    System.out.println("");
    }
 
 	public static void main(String[] argc) {
