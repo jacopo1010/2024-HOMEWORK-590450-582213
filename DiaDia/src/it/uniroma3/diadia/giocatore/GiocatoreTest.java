@@ -1,8 +1,10 @@
-package com.uniroma3.didia;
-
+package it.uniroma3.diadia.giocatore;
+import it.uniroma3.diadia.attrezzi.Attrezzo;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import it.uniroma3.diadia.giocatore.Giocatore;
 
 public class GiocatoreTest {
       Giocatore playerGiocatore = new Giocatore();

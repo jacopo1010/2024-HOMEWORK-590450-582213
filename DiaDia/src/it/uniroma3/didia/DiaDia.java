@@ -1,7 +1,10 @@
-package com.uniroma3.didia;
+package it.uniroma3.didia;
 
 
 import java.util.Scanner;
+
+import it.uniroma3.diadia.ambienti.Stanza;
+import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 
 /**
