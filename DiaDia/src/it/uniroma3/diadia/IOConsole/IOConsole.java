@@ -8,9 +8,8 @@ public class IOConsole {
 	}
 	
 	public String leggiRiga() {
-		try (Scanner scannerDiLinee = new Scanner(System.in)) { //try with resources per aiutare il garbage collector a eliminare una volta finito
-			String riga = scannerDiLinee.nextLine();
-			return riga;
-		}
+		Scanner scannerDiLinee = new Scanner(System.in);
+		String riga = scannerDiLinee.nextLine();
+		return riga;
 	}
 }

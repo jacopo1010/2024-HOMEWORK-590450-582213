@@ -46,14 +46,20 @@ public class DiaDia {
 	}
 
 	public void gioca() {
-		String istruzione; 
+		ioConsole.mostraMessaggio(MESSAGGIO_BENVENUTO);
+		
+		String istruzione;
+		do {
+			istruzione = ioConsole.leggiRiga();
+		} while (!processaIstruzione(istruzione));
+		/*String istruzione; 
 		Scanner scannerDiLinee;
 
-		ioConsole.mostraMessaggio(MESSAGGIO_BENVENUTO);
+		
 		scannerDiLinee = new Scanner(System.in);		
 		do		
 			istruzione = scannerDiLinee.nextLine();
-		while (!processaIstruzione(istruzione));
+		while (!processaIstruzione(istruzione));*/
 	}   
 
 
