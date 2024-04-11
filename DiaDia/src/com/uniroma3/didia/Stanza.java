@@ -1,4 +1,8 @@
 package com.uniroma3.didia;
+
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+
 /**
  * Classe Stanza - una stanza in un gioco di ruolo.
  * Una stanza e' un luogo fisico nel gioco.
