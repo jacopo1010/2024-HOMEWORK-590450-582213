@@ -15,6 +15,7 @@ public class BorsaTest {
 	public void testRemoveAttrezzoUno() {
 		borsa.addAttrezzo(attrezzoTest1);
 		assertEquals(attrezzoTest1, borsa.removeAttrezzo("Attrezzo1"));
+		assertEquals(null, borsa.getAttrezzo("Attrezzo1"));
 	}
 	@Test
 	public void testRemoveAttrezzoDue() {
