@@ -66,9 +66,11 @@ public class Borsa {
 		Attrezzo[] arrayApp = new Attrezzo[10];
 		boolean ver = false;
 		for (int i = 0; i < attrezzi.length; i++) {
-			if (ver == false && attrezzi[i].getNome().equals(nomeAttrezzo)) {
+			if (ver == false && attrezzi[i] != null && attrezzi[i].getNome().equals(nomeAttrezzo)) {
+				a = attrezzi[i];
 				i++;
 				ver = true;
+				this.numeroAttrezzi--;
 			} 
 			arrayApp[j] = attrezzi[i];
 			j++;

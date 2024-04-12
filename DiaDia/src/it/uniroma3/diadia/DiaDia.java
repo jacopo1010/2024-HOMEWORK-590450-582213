@@ -1,10 +1,8 @@
 package it.uniroma3.diadia;
 
-import java.util.Scanner;
 import it.uniroma3.diadia.IOConsole.IOConsole;
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
-import it.uniroma3.diadia.giocatore.Borsa;
 
 
 /**
@@ -160,8 +158,9 @@ public class DiaDia {
 			ioConsole.mostraMessaggio("Quale attrezzo vuoi posare? ");
 		Attrezzo appAttrezzo = null;
 		appAttrezzo = this.partita.getGiocatore().getBorsa().getAttrezzo(nomeAttrezzo);
-		if (appAttrezzo == null) 
+		if (appAttrezzo == null) {
 			ioConsole.mostraMessaggio("Attrezzo inesistente!");
+		}
 		else {
 			this.partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
 			this.partita.getStanzaCorrente().addAttrezzo(appAttrezzo);
