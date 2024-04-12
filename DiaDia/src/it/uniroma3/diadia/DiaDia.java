@@ -1,10 +1,6 @@
 package it.uniroma3.diadia;
 
-
 import java.util.Scanner;
-
-import org.hamcrest.text.IsEqualIgnoringCase;
-
 import it.uniroma3.diadia.IOConsole.IOConsole;
 import it.uniroma3.diadia.ambienti.Stanza;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
