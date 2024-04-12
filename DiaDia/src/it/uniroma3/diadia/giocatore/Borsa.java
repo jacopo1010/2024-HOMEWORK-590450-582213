@@ -14,10 +14,15 @@ public class Borsa {
 
 	public Borsa(int pesoMax) {
 		this.pesoMax = pesoMax;
-		this.attrezzi = new Attrezzo[10]; // speriamo bastino...
+		this.attrezzi = new Attrezzo[10];
 		this.numeroAttrezzi = 0;
 	}
 	
+	/**
+	 * Aggiunge un attrezzo nella borsa
+	 * @param attrezzo
+	 * @return
+	 */
 	public boolean addAttrezzo(Attrezzo attrezzo) {
 		if (this.getPeso() + attrezzo.getPeso() > this.getPesoMax())
 			return false;
@@ -78,7 +83,10 @@ public class Borsa {
 		attrezzi = arrayApp;
 		return a;
 	}
-
+	
+	/**
+	 * Crea una stringa con il contenuto della borsa e il suo peso
+	 */
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 		if (!this.isEmpty()) {
