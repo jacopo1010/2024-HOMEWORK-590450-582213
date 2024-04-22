@@ -16,15 +16,15 @@ public class FabbricaDiComandiFisarmonica implements FabbricaDiComandi{
 		if (nomeComando == null)
 			comando = new ComandoNonValido();
 		else if (nomeComando.equals("vai"))
-			comando = new ComandoVai();
+			comando = new ComandoVai(parametro);
 		else if (nomeComando.equals("prendi"))
-			comando = new ComandoPrendi();
+			comando = new ComandoPrendi(parametro);
 		else if (nomeComando.equals("posa"))
-			comando = new ComandoPosa();
+			comando = new ComandoPosa(parametro);
 		else if (nomeComando.equals("aiuto"))
-			comando = new ComandoAiuto();
+			comando = new ComandoAiuto(parametro);
 		else if (nomeComando.equals("fine"))
-			comando = new ComandoFine();
+			comando = new ComandoFine(parametro);
 		else if (nomeComando.equals("guarda"))
 			comando = new ComandoGuarda();
 		else comando = new ComandoNonValido();
