@@ -8,6 +8,7 @@ public class ComandoFine implements Comando {
 	@Override
 	public void esegui(Partita partita) {
 	  System.out.println("Grazie per aver giocato!");
+	  partita.setFinita();
 	}
 
 	@Override
