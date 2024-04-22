@@ -1,10 +1,6 @@
 package it.uniroma3.diadia;
 
-import java.util.Scanner;
-
 import it.uniroma3.diadia.IOConsole.IOConsole;
-import it.uniroma3.diadia.ambienti.Stanza;
-import it.uniroma3.diadia.attrezzi.Attrezzo;
 import it.uniroma3.diadia.comandi.*;
 
 /**
@@ -65,7 +61,7 @@ public class DiaDia {
 		}
 		if (!this.partita.giocatoreIsVivo()) {
 			System.out.println("Hai esaurito i CFU...");
-			return true;
+			partita.setFinita();
 		}
 		
 		return this.partita.isFinita();
@@ -80,32 +76,4 @@ public class DiaDia {
 		gioco.gioca();
 	}
 }
-
-/** private String nome;
-    private String parametro;
-
-    public Comando(String istruzione) {
-		Scanner scannerDiParole = new Scanner(istruzione);
-
-		// prima parola: nome del comando
-		if (scannerDiParole.hasNext())
-			this.nome = scannerDiParole.next(); 
-
-		// seconda parola: eventuale parametro
-		if (scannerDiParole.hasNext())
-			this.parametro = scannerDiParole.next();
-    }
-
-    public String getNome() {
-        return this.nome;
-    }
-
-    public String getParametro() {
-        return this.parametro;
-    }
-
-    public boolean sconosciuto() {
-        return (this.nome == null);
-    }
-}**/
 

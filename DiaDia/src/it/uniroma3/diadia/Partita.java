@@ -14,7 +14,6 @@ import it.uniroma3.diadia.giocatore.Giocatore;
 
 public class Partita {
 
-	static final private int CFU_INIZIALI = 20;
     private Labirinto labirinto;
 	private Stanza stanzaCorrente;
 	private boolean finita;
