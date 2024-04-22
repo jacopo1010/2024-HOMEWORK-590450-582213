@@ -70,5 +70,13 @@ public class Partita {
 
 	public Giocatore getGiocatore() {
 		return giocatore;
+	}
+
+
+	public boolean giocatoreIsVivo() {
+		if (giocatore.getCfu() == 0) {
+			return false;
+		}
+		return true;
 	}	
 }

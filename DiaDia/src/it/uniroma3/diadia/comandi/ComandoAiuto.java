@@ -1,5 +1,6 @@
 package it.uniroma3.diadia.comandi;
 
+import it.uniroma3.diadia.Comando;
 import it.uniroma3.diadia.Partita;
 
 public class ComandoAiuto implements Comando {
