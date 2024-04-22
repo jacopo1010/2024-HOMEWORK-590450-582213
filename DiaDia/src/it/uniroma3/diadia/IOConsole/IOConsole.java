@@ -1,7 +1,8 @@
 package it.uniroma3.diadia.IOConsole;
 import java.util.Scanner;
+import it.uniroma3.diadia.IO;
 
-public class IOConsole {
+public class IOConsole implements IO{
 	/**
 	 * Stampa nella console un messaggio
 	 * @param msg

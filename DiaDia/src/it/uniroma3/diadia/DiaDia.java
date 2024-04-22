@@ -35,7 +35,7 @@ public class DiaDia {
 	
 	IOConsole ioConsole = new IOConsole();
 
-	public DiaDia() {
+	public DiaDia(IO io) {
 		this.partita = new Partita();
 	}
 
@@ -176,7 +176,8 @@ public class DiaDia {
 
 	
 	public static void main(String[] argc) {
-		DiaDia gioco = new DiaDia();
+		IO io = new IOConsole();
+		DiaDia gioco = new DiaDia(io);
 		gioco.gioca();
 	}
 }
