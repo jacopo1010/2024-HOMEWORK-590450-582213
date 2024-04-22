@@ -11,7 +11,7 @@ public class StanzaBuia extends Stanza{
 
 	public String getDescrizione() {
 		StringBuilder stringa = new StringBuilder();
-		if (!hasAttrezzo(nomeAttrezzoLuce)) {
+		if (hasAttrezzo(nomeAttrezzoLuce) == false) {
 			stringa.append("qui c'è buio pesto");
 		}
 		else {
@@ -21,11 +21,6 @@ public class StanzaBuia extends Stanza{
 		for (String direzione : super.getDirezioni())
 			if (direzione!=null)
 				stringa.append(" " + direzione);
-		stringa.append("\nAttrezzi nella stanza: ");
-		for (Attrezzo attrezzo : this.attrezzi) {
-			if(attrezzo != null)                
-				stringa.append(attrezzo.toString()+" ");
-		}
 
 		return stringa.toString();
 	}

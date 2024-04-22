@@ -23,10 +23,12 @@ public class ComandoVai implements Comando{
 		if (prossimaStanza == null) {
 			System.out.println("Direzione inesistente!");
 		}
-		partita.setStanzaCorrente(prossimaStanza);
-		System.out.println(partita.getStanzaCorrente().getNome());
-		partita.getGiocatore().setCfu(partita.getGiocatore().getCfu()-1);
-		System.out.println(partita.getGiocatore().getCfu());
+		else {
+			partita.setStanzaCorrente(prossimaStanza);
+			System.out.println(partita.getStanzaCorrente().getNome());
+			partita.getGiocatore().setCfu(partita.getGiocatore().getCfu()-1);
+			System.out.println(partita.getGiocatore().getCfu());
+		}
 	}
 
 	@Override
