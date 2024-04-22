@@ -10,19 +10,22 @@ public class StanzaBuia extends Stanza{
 	}
 
 	public String getDescrizione() {
-		boolean v = true;
 		StringBuilder stringa = new StringBuilder();
-		Attrezzo appAttrezzo = null;
-		for (int i = 0; i < numeroAttrezzi; ++i) {
-			if(attrezzi[i].getNome().equals("lanterna")) {
-				appAttrezzo = attrezzi[i];
-				v = false;
-			}
+		if (!hasAttrezzo(nomeAttrezzoLuce)) {
+			stringa.append("qui c'è buio pesto");
 		}
-		if(v == true)
-			stringa.append("\nQui c'e' un buio pesto");
-		else 
-			stringa.append("\nLa stanza ora e' illuminata da" + appAttrezzo.getNome());
+		else {
+			stringa.append("la stanza e' illuminata da: " + this.nomeAttrezzoLuce);
+		}
+		stringa.append("\nUscite: ");
+		for (String direzione : super.getDirezioni())
+			if (direzione!=null)
+				stringa.append(" " + direzione);
+		stringa.append("\nAttrezzi nella stanza: ");
+		for (Attrezzo attrezzo : this.attrezzi) {
+			if(attrezzo != null)                
+				stringa.append(attrezzo.toString()+" ");
+		}
 
 		return stringa.toString();
 	}
