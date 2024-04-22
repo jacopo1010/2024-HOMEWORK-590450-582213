@@ -4,7 +4,7 @@ import java.util.Scanner;
 import it.uniroma3.diadia.Comando;
 
 public class FabbricaDiComandiFisarmonica implements FabbricaDiComandi{
-
+	
 	@Override
 	public Comando costruisciComando(String istruzione) {
 		Scanner scannerDiParole = new Scanner(istruzione);
@@ -29,7 +29,10 @@ public class FabbricaDiComandiFisarmonica implements FabbricaDiComandi{
 			comando = new ComandoFine();
 		else if (nomeComando.equals("guarda"))
 			comando = new ComandoGuarda();
-		else comando = new ComandoNonValido();
+		else if(nomeComando.equals("inventario"))
+			 comando = new ComandoInventario(); 
+		else 
+			comando = new ComandoNonValido();
 		comando.setParametro(parametro);
 		return comando;
 	}

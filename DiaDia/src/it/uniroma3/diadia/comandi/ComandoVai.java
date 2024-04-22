@@ -25,7 +25,8 @@ public class ComandoVai implements Comando{
 		}
 		partita.setStanzaCorrente(prossimaStanza);
 		System.out.println(partita.getStanzaCorrente().getNome());
-		System.out.println(partita.getGiocatore().getCfu()-1);
+		partita.getGiocatore().setCfu(partita.getGiocatore().getCfu()-1);
+		System.out.println(partita.getGiocatore().getCfu());
 	}
 
 	@Override
