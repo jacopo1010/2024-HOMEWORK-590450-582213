@@ -38,14 +38,16 @@ public class Labirinto {
 		aulaN10.impostaStanzaAdiacente("nord", atrio);
 		aulaN10.impostaStanzaAdiacente("est", aulaN11);
 		aulaN10.impostaStanzaAdiacente("ovest", laboratorio);
-		//sto inserenfo io non erano predefinite
+		//sto inserendo io non erano predefinite
 		aulaN11.impostaStanzaAdiacente("nord", n9);
 		biblioteca.impostaStanzaAdiacente("ovest", n12);
-		n12.impostaStanzaAdiacente("est", biblioteca);
+		n12.impostaStanzaAdiacente("nord", bagno);
 		n12.impostaStanzaAdiacente("ovest", n9);
 		n9.impostaStanzaAdiacente("est", n12);
-		n9.impostaStanzaAdiacente("sud", bagno);
-		bagno.impostaStanzaAdiacente("nord", n9);
+		n9.impostaStanzaAdiacente("sud", aulaN11);
+		n9.impostaStanzaAdiacente("ovest", bagno);
+		bagno.impostaStanzaAdiacente("est", n9);
+		bagno.impostaStanzaAdiacente("sud", n12);
 		//quelle predefinite
 		laboratorio.impostaStanzaAdiacente("est", atrio);
 		laboratorio.impostaStanzaAdiacente("ovest", aulaN11);

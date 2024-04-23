@@ -22,7 +22,7 @@ public class Stanza {
     protected Attrezzo[] attrezzi;
     protected int numeroAttrezzi;
     private Stanza[] stanzeAdiacenti;
-    private int numeroStanzeAdiacenti;
+    protected int numeroStanzeAdiacenti;
 	private String[] direzioni;
     
     /**
