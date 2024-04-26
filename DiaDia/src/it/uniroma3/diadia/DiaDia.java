@@ -1,6 +1,6 @@
 package it.uniroma3.diadia;
 
-import it.uniroma3.diadia.IOConsole.IOConsole;
+import it.uniroma3.diadia.IOConsole.*;
 import it.uniroma3.diadia.comandi.*;
 
 /**
@@ -29,19 +29,20 @@ public class DiaDia {
 
 	private Partita partita;
 
-	IOConsole ioConsole = new IOConsole();
+	//IOConsole ioConsole = new IOConsole();
+	public IO io;
 
 	public DiaDia(IO io) {
 		this.partita = new Partita();
-
+		this.io = io;
 	}
 
 	public void gioca() {
-		ioConsole.mostraMessaggio(MESSAGGIO_BENVENUTO);
+		io.mostraMessaggio(MESSAGGIO_BENVENUTO);
 
 		String istruzione;
 		do {
-			istruzione = ioConsole.leggiRiga();
+			istruzione = io.leggiRiga();
 		} while (!processaIstruzione(istruzione));
 	}   
 
@@ -54,13 +55,13 @@ public class DiaDia {
 	private boolean processaIstruzione(String istruzione) {
 		Comando comandoDaEseguire;
 		FabbricaDiComandi factory = new FabbricaDiComandiFisarmonica();
-		comandoDaEseguire = factory.costruisciComando(istruzione);
+		comandoDaEseguire = factory.costruisciComando(istruzione, io);
 		comandoDaEseguire.esegui(this.partita);
 		if (this.partita.vinta()) {
-			System.out.println("Hai vinto!");
+			io.mostraMessaggio("Hai vinto!");
 		}
 		if (!this.partita.giocatoreIsVivo()) {
-			System.out.println("Hai esaurito i CFU...");
+			io.mostraMessaggio("Hai esaurito i CFU...");
 			partita.setFinita();
 		}
 		

@@ -10,13 +10,11 @@ public class ComandoGuarda implements Comando {
 
 	@Override
 	public void esegui(Partita partita) {
-		Stanza guardaStanza = partita.getStanzaCorrente();
-		//System.out.println(guardaStanza.toString());
-	   //	if(guardaStanza.getDescrizione() != null)
-		System.out.println(guardaStanza.getDescrizione());
-		System.out.println("Cfu in possesso: " + partita.getGiocatore().getCfu());
+	Stanza guardaStanza = partita.getStanzaCorrente();
+    System.out.println(guardaStanza.toString());
+    System.out.println("Cfu in possesso: " + partita.getGiocatore().getCfu());
 	}
-
+	
 
 	@Override
 	public void setParametro(String parametro) {
