@@ -7,7 +7,7 @@ public class StanzaBuia extends Stanza{
 		super(nome);
 		this.nomeAttrezzoLuce = nomeAttrezzo;
 	}
-
+	
 	public String getDescrizione() {
 		StringBuilder stringa = new StringBuilder();
 		if (hasAttrezzo(nomeAttrezzoLuce) == false) {

@@ -15,7 +15,7 @@ public class ComandoGuarda implements Comando {
 	@Override
 	public void esegui(Partita partita) {
 	Stanza guardaStanza = partita.getStanzaCorrente();
-	io.mostraMessaggio(guardaStanza.toString());
+	io.mostraMessaggio(guardaStanza.getDescrizione());
     io.mostraMessaggio("Cfu in possesso: " + partita.getGiocatore().getCfu());
 	}
 	
