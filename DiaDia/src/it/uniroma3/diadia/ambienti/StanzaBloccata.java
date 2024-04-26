@@ -30,11 +30,15 @@ public class StanzaBloccata extends Stanza{
 		}else {
 			descrizione.append("La stanza e' stata sbloccata attraverso: " + this.nomeAttrezzoSbloccaStanza);
 		}
-        descrizione.append("\nUscite: ");
+		descrizione.append("\nUscite: ");
 		for (String direzione : super.getDirezioni())
 			if (direzione!=null)
 				descrizione.append(" " + direzione);
-
+		descrizione.append("\nAttrezzi nella stanza: ");
+		for (Attrezzo attrezzo : this.attrezzi) {
+			if(attrezzo != null)                        //correzione 1 errore attraverso 
+				descrizione.append(attrezzo.toString()+" ");
+		}
 		return descrizione.toString();
 	}
 
