@@ -29,7 +29,6 @@ public class DiaDia {
 
 	private Partita partita;
 
-	//IOConsole ioConsole = new IOConsole();
 	public IO io;
 
 	public DiaDia(IO io) {
