@@ -12,8 +12,8 @@ public class StanzaBuia extends Stanza{
 
 	public String getDescrizione() {
 		StringBuilder stringa = new StringBuilder();
-		if (hasAttrezzo(nomeAttrezzoLuce) == false) {
-			stringa.append("qui c'è buio pesto");
+		if (isIlluminato()) {
+			stringa.append("la stanza e' illuminata da: " + this.nomeAttrezzoLuce);
 		}
 		else {
 			stringa.append("la stanza e' illuminata da: " + this.nomeAttrezzoLuce);
@@ -26,9 +26,17 @@ public class StanzaBuia extends Stanza{
 				if(attrezzo != null)                         
 					stringa.append(attrezzo.toString()+" ");
 			}
+			stringa.append("qui c'è buio pesto");
 		}
 
 		return stringa.toString();
+	}
+	
+	public Boolean isIlluminato() {
+		if (hasAttrezzo(nomeAttrezzoLuce) == true) {
+			return true;
+		}
+		return false;
 	}
 
 }
