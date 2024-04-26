@@ -1,18 +1,22 @@
 package it.uniroma3.diadia.comandi;
 
 import it.uniroma3.diadia.Comando;
+import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.ambienti.Stanza;
-import it.uniroma3.diadia.attrezzi.Attrezzo;
-import it.uniroma3.diadia.giocatore.Giocatore;
 
 public class ComandoGuarda implements Comando {
-
+	private IO io;
+	
+	public ComandoGuarda(IO io) {
+		this.io = io;
+	}
+	
 	@Override
 	public void esegui(Partita partita) {
 	Stanza guardaStanza = partita.getStanzaCorrente();
-    System.out.println(guardaStanza.toString());
-    System.out.println("Cfu in possesso: " + partita.getGiocatore().getCfu());
+	io.mostraMessaggio(guardaStanza.toString());
+    io.mostraMessaggio("Cfu in possesso: " + partita.getGiocatore().getCfu());
 	}
 	
 

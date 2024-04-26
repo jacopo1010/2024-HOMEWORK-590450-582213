@@ -1,29 +1,33 @@
 package it.uniroma3.diadia.comandi;
 
 import it.uniroma3.diadia.Comando;
+import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class ComandoPosa implements Comando {
 	private String nomeAttrezzo;
+	
+	private IO io;
 
-	public ComandoPosa(String attrezzo) {
+	public ComandoPosa(String attrezzo, IO io) {
 		this.nomeAttrezzo = attrezzo;
+		this.io = io;
 	}
 
 	@Override
 	public void esegui(Partita partita) {
 		if(nomeAttrezzo == null)
-			System.out.println("Quale attrezzo vuoi posare ?");
+			io.mostraMessaggio("Quale attrezzo vuoi posare ?");
 		Attrezzo appAttrezzo = null;
 		appAttrezzo = partita.getGiocatore().getBorsa().getAttrezzo(nomeAttrezzo);
 		if (appAttrezzo == null) {
-			System.out.println("attrezzo inesistente");
+			io.mostraMessaggio("attrezzo inesistente");
 		}
 		else {
 			partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
 			partita.getStanzaCorrente().addAttrezzo(appAttrezzo);
-			System.out.println("Hai posato l'attrezzo");
+			io.mostraMessaggio("Hai posato l'attrezzo");
 		}
 	}
 

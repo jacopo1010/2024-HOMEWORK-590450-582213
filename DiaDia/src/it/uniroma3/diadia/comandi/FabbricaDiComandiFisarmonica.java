@@ -19,28 +19,28 @@ public class FabbricaDiComandiFisarmonica implements FabbricaDiComandi{
 		
 		switch (nomeComando) {
 		case "fine":
-			comando = new ComandoFine();
+			comando = new ComandoFine(io);
 			break;
 		case "vai":
 			comando = new ComandoVai(parametro, io);
 			break;
 		case "aiuto":
-			comando = new ComandoAiuto();
+			comando = new ComandoAiuto(io);
 			break;
 		case "posa":
-			comando = new ComandoPosa(parametro);
+			comando = new ComandoPosa(parametro, io);
 			break;
 		case "inventario":
-			comando = new ComandoInventario();
+			comando = new ComandoInventario(io);
 			break;
 		case "prendi":
 			comando = new ComandoPrendi(parametro, io);
 			break;
 		case "guarda":
-			comando = new ComandoGuarda();
+			comando = new ComandoGuarda(io);
 			break;
 		default:
-			comando = new ComandoNonValido();
+			comando = new ComandoNonValido(io);
 			break;
 		}
 		comando.setParametro(parametro);
