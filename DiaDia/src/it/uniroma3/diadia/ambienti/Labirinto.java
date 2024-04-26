@@ -24,8 +24,8 @@ public class Labirinto {
 		Stanza aulaN10 = new Stanza("Aula N10");
 		Stanza laboratorio = new Stanza("Laboratorio Campus");
 		Stanza biblioteca = new Stanza("Biblioteca");
-		StanzaBloccata n12 = new StanzaBloccata("n12", "nord", "osso");
-		StanzaBuia n9 = new StanzaBuia("n9", "lanterna");
+		StanzaBloccata aulaN12 = new StanzaBloccata("Aula N12", "nord", "osso");
+		StanzaBuia aulaN9 = new StanzaBuia("Aula N9", "lanterna");
         StanzaMagica bagno = new StanzaMagica("bagno");
 		
 		/* collega le stanze */
@@ -39,15 +39,15 @@ public class Labirinto {
 		aulaN10.impostaStanzaAdiacente("est", aulaN11);
 		aulaN10.impostaStanzaAdiacente("ovest", laboratorio);
 		//sto inserendo io non erano predefinite
-		aulaN11.impostaStanzaAdiacente("nord", n9);
-		biblioteca.impostaStanzaAdiacente("ovest", n12);
-		n12.impostaStanzaAdiacente("nord", bagno);
-		n12.impostaStanzaAdiacente("ovest", n9);
-		n9.impostaStanzaAdiacente("est", n12);
-		n9.impostaStanzaAdiacente("sud", aulaN11);
-		n9.impostaStanzaAdiacente("ovest", bagno);
-		bagno.impostaStanzaAdiacente("est", n9);
-		bagno.impostaStanzaAdiacente("sud", n12);
+		aulaN11.impostaStanzaAdiacente("nord", aulaN9);
+		biblioteca.impostaStanzaAdiacente("ovest", aulaN12);
+		aulaN12.impostaStanzaAdiacente("nord", bagno);
+		aulaN12.impostaStanzaAdiacente("ovest", aulaN9);
+		aulaN9.impostaStanzaAdiacente("est", aulaN12);
+		aulaN9.impostaStanzaAdiacente("sud", aulaN11);
+		aulaN9.impostaStanzaAdiacente("ovest", bagno);
+		bagno.impostaStanzaAdiacente("est", aulaN9);
+		bagno.impostaStanzaAdiacente("sud", aulaN12);
 		//quelle predefinite
 		laboratorio.impostaStanzaAdiacente("est", atrio);
 		laboratorio.impostaStanzaAdiacente("ovest", aulaN11);
