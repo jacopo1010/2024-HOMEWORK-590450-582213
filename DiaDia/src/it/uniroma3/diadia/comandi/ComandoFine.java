@@ -26,7 +26,7 @@ public class ComandoFine implements Comando {
 	@Override
 	public String getNome() {
 		// TODO Auto-generated method stub
-		return null;
+		return "fine";
 	}
 
 	@Override

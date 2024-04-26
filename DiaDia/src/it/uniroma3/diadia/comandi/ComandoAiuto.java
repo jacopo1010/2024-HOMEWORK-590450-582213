@@ -31,7 +31,7 @@ public class ComandoAiuto implements Comando {
 	@Override
 	public String getNome() {
 		// TODO Auto-generated method stub
-		return null;
+		return "aiuto";
 	}
 
 	@Override

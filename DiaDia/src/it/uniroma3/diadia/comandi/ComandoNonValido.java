@@ -25,7 +25,7 @@ public class ComandoNonValido implements Comando {
 	@Override
 	public String getNome() {
 		// TODO Auto-generated method stub
-		return null;
+		return "non valido";
 	}
 
 	@Override
