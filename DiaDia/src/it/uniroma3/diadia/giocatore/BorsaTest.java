@@ -10,6 +10,7 @@ public class BorsaTest {
 	Attrezzo attrezzoTest1 = new Attrezzo("Attrezzo1", 1);
 	Attrezzo attrezzoTest2 = new Attrezzo("Attrezzo2", 2);
 	Attrezzo attrezzoTest3 = new Attrezzo("Attrezzo3", 1);
+	Attrezzo attrezzoTest4 = new Attrezzo("Attrezzo4", 5);
 	
 	@Test
 	public void testRemoveAttrezzoUno() {
@@ -29,6 +30,43 @@ public class BorsaTest {
 	public void testRemoveAttrezzoVuoto() {
 		assertEquals(null, borsa.removeAttrezzo("Attrezzo1"));
 	}
-
+	@Test
+	public void testIsEmpty() {
+		assertTrue(borsa.isEmpty());
+	}
+	@Test
+	public void testIsEmptyConRoba() {
+		borsa.addAttrezzo(attrezzoTest1);
+		borsa.addAttrezzo(attrezzoTest2);
+		assertFalse(borsa.isEmpty());
+	}
+	@Test
+	public void testGetPesoVuota() {
+		assertEquals(0, borsa.getPeso());
+	}
+	@Test
+	public void testGetPesoPiena() {
+		borsa.addAttrezzo(attrezzoTest4);
+		borsa.addAttrezzo(attrezzoTest4);
+		assertEquals(10, borsa.getPeso());
+	}
+	@Test
+	public void testHasAttrezzoTrue() {
+		//questo test è valido anche per getAttrezzo
+		borsa.addAttrezzo(attrezzoTest4);
+		assertTrue(borsa.hasAttrezzo("Attrezzo4"));
+	}
+	@Test
+	public void testHasAttrezzoFalse() {
+		//questo test è valido anche per getAttrezzo
+		assertFalse(borsa.hasAttrezzo("Attrezzo4"));
+	}
+	@Test
+	public void tesBorsaPiena() {
+		//questo test è valido anche per getAttrezzo
+		borsa.addAttrezzo(attrezzoTest4);
+		borsa.addAttrezzo(attrezzoTest4);
+		assertFalse(borsa.addAttrezzo(attrezzoTest1));
+	}
 }
 
