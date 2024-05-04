@@ -1,6 +1,7 @@
 package it.uniroma3.diadia.ambienti;
 
 import it.uniroma3.diadia.attrezzi.Attrezzo;
+import java.util.ArrayList;
 
 /**
  * Classe Stanza - una stanza in un gioco di ruolo.
