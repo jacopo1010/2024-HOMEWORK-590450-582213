@@ -22,15 +22,11 @@ public class StanzaBuia extends Stanza{
 		else {
 			stringa.append("qui c'è buio pesto");
 		}
-
 		return stringa.toString();
 	}
 	
 	public Boolean isIlluminato() {
-		if (hasAttrezzo(nomeAttrezzoLuce) == true) {
-			return true;
-		}
-		return false;
+		return hasAttrezzo(nomeAttrezzoLuce);
 	}
 
 }

@@ -23,10 +23,10 @@ public class Borsa {
 	 * @return
 	 */
 	public boolean addAttrezzo(Attrezzo attrezzo) {
-		if (this.getPeso() + attrezzo.getPeso() > this.getPesoMax())
+		if (this.getPeso() + attrezzo.getPeso() > this.getPesoMax()) {
 			return false;
-		attrezzi.add(attrezzo);
-		return true;
+		}
+		return attrezzi.add(attrezzo);
 	}
 	
 	public int getPesoMax() {

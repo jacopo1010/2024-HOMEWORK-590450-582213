@@ -83,8 +83,7 @@ public class Stanza {
      * @return true se riesce ad aggiungere l'attrezzo, false atrimenti.
      */
     public boolean addAttrezzo(Attrezzo attrezzo) {
-    	attrezzi.add(attrezzo);
-        return true;
+    	return attrezzi.add(attrezzo);
     }
 
    /**
