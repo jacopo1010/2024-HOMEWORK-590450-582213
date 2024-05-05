@@ -64,15 +64,14 @@ public class Borsa {
 	  * @return Attrezzo rimosso
 	  */
 	public Attrezzo removeAttrezzo(String nomeAttrezzo) {
-		Attrezzo rimosso = null;
 		for (Attrezzo att : attrezzi) {
 			if(att.getNome().equals(nomeAttrezzo)) {
-				rimosso = att;
+				Attrezzo rimosso = att;
 				attrezzi.remove(att);
-				break;
+				return rimosso;
 			}
 		}
-		return rimosso;
+		return null;
 	}
 	
 	/**
@@ -80,13 +79,13 @@ public class Borsa {
 	 */
 	public String toString() {
 		StringBuilder s = new StringBuilder();
-		if (!this.isEmpty()) {
-			s.append("Contenuto borsa ("+this.getPeso()+"kg/"+this.getPesoMax()+"kg): ");
-			for (Attrezzo att : attrezzi)
-				s.append(att.toString()+" ");
-		}
-		else
+		if (this.isEmpty()) {
 			s.append("Borsa vuota");
+		}
+		else {
+			s.append("Contenuto borsa ("+this.getPeso()+"kg/"+this.getPesoMax()+"kg): ");
+			attrezzi.forEach((a) -> s.append(a.toString()+" "));
+		}
 		return s.toString();
 	}
 }

@@ -45,5 +45,33 @@ public class StanzaTest {
 		stanzaTest2.addAttrezzo(attrezzoTest2);
 		assertFalse(stanzaTest1.hasAttrezzo("Attrezzo1"));
 	}
-
+	@Test
+	public void testImpostaStanzaAdiacente() {
+		stanzaTest1.impostaStanzaAdiacente("nord", stanzaTest2);
+		assertEquals(stanzaTest2, stanzaTest1.getStanzaAdiacente("nord"));
+	}
+	@Test
+	public void testGetDirezioni() {
+		stanzaTest1.impostaStanzaAdiacente("nord", stanzaTest2);
+		assertEquals(1, stanzaTest1.getDirezioni().length);
+	}
+	@Test
+	public void testGetStanzaAdiacente() {
+		stanzaTest1.impostaStanzaAdiacente("nord", stanzaTest2);
+		assertEquals(stanzaTest2, stanzaTest1.getStanzaAdiacente("nord"));
+	}
+	@Test
+	public void testGetAttrezzo() {
+		stanzaTest1.addAttrezzo(attrezzoTest1);
+		stanzaTest1.addAttrezzo(attrezzoTest2);
+		assertEquals(attrezzoTest1, stanzaTest1.getAttrezzo("Attrezzo1"));
+		assertEquals(attrezzoTest2, stanzaTest1.getAttrezzo("Attrezzo2"));
+	}
+	public void test11Attrezzi() {
+		for(int i = 0; i < 11; i++) {
+			stanzaTest1.addAttrezzo(attrezzoTest1);
+		}
+		stanzaTest1.addAttrezzo(attrezzoTest2);
+		assertEquals(attrezzoTest2, stanzaTest1.getAttrezzo("Attrezzo2"));
+	}
 }
