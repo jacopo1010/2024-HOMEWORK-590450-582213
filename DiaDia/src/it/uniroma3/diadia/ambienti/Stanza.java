@@ -17,11 +17,9 @@ import java.util.ArrayList;
 public class Stanza {
 	
 	static final private int NUMERO_MASSIMO_DIREZIONI = 4;
-	static final private int NUMERO_MASSIMO_ATTREZZI = 10;
 	
 	private String nome;
-    protected Attrezzo[] attrezzi;
-    protected int numeroAttrezzi;
+    protected ArrayList<Attrezzo> attrezzi;
     private Stanza[] stanzeAdiacenti;
     protected int numeroStanzeAdiacenti;
 	private String[] direzioni;
@@ -33,10 +31,9 @@ public class Stanza {
     public Stanza(String nome) {
         this.nome = nome;
         this.numeroStanzeAdiacenti = 0;
-        this.numeroAttrezzi = 0;
         this.direzioni = new String[NUMERO_MASSIMO_DIREZIONI];
         this.stanzeAdiacenti = new Stanza[NUMERO_MASSIMO_DIREZIONI];
-        this.attrezzi = new Attrezzo[NUMERO_MASSIMO_ATTREZZI];
+        this.attrezzi = new ArrayList<Attrezzo>();
     }
 
     /**
@@ -92,7 +89,7 @@ public class Stanza {
      * Restituisce la collezione di attrezzi presenti nella stanza.
      * @return la collezione di attrezzi nella stanza.
      */
-    public Attrezzo[] getAttrezzi() {
+    public ArrayList<Attrezzo> getAttrezzi() {
         return this.attrezzi;
     }
 
@@ -102,14 +99,8 @@ public class Stanza {
      * @return true se riesce ad aggiungere l'attrezzo, false atrimenti.
      */
     public boolean addAttrezzo(Attrezzo attrezzo) {
-        if (this.numeroAttrezzi < NUMERO_MASSIMO_ATTREZZI) {
-        	this.attrezzi[numeroAttrezzi] = attrezzo;
-        	this.numeroAttrezzi++;
-        	return true;
-        }
-        else {
-        	return false;
-        }
+    	attrezzi.add(attrezzo);
+        return true;
     }
 
    /**
@@ -168,14 +159,7 @@ public class Stanza {
 	 * @return true se l'attrezzo e' stato rimosso, false altrimenti
 	 */
 	public boolean removeAttrezzo(Attrezzo attrezzo) {
-		boolean ver = false;
-		for (int i = 0; i < attrezzi.length && ver == false; i++) {
-			if (attrezzi[i] != null && attrezzi[i].getNome().equals(attrezzo.getNome())) {
-				attrezzi[i] = null;
-				ver = true;
-			}
-		}
-		return ver;
+		return attrezzi.remove(attrezzo);
 	}
 
 
