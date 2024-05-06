@@ -22,7 +22,6 @@ public class Stanza {
 	private String nome;
     protected ArrayList<Attrezzo> attrezzi;
     private HashMap<String, Stanza> stanzeAdiacenti;
-    protected int numeroStanzeAdiacenti;
     
     /**
      * Crea una stanza. Non ci sono stanze adiacenti, non ci sono attrezzi.
@@ -30,7 +29,6 @@ public class Stanza {
      */
     public Stanza(String nome) {
         this.nome = nome;
-        this.numeroStanzeAdiacenti = 0;
         this.stanzeAdiacenti = new HashMap<String, Stanza>(NUMERO_MASSIMO_DIREZIONI);
         this.attrezzi = new ArrayList<Attrezzo>();
     }
