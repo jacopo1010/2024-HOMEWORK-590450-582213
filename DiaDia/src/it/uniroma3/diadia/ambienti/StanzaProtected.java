@@ -9,9 +9,7 @@ public class StanzaProtected {
 
 	protected String nome;
 	protected ArrayList<Attrezzo> attrezzi;
-	protected int numeroAttrezzi;
 	protected HashMap<String, Stanza> stanzeAdiacenti;
-	protected int numeroStanzeAdiacenti;
 
 	/**
 	 * Crea una stanza. Non ci sono stanze adiacenti, non ci sono attrezzi.
@@ -19,7 +17,6 @@ public class StanzaProtected {
 	 */
 	public StanzaProtected(String nome) {
 		this.nome = nome;
-		this.numeroAttrezzi = 0;
 		this.stanzeAdiacenti = new HashMap<String, Stanza>(NUMERO_MASSIMO_DIREZIONI);
 		this.attrezzi = new ArrayList<Attrezzo>();
 	}
@@ -105,8 +102,7 @@ public class StanzaProtected {
 	/**
 	 * Restituisce l'attrezzo nomeAttrezzo se presente nella stanza.
 	 * @param nomeAttrezzo
-	 * @return l'attrezzo presente nella stanza.
-	 * 		   null se l'attrezzo non e' presente.
+	 * @return l'attrezzo presente nella stanza. null se l'attrezzo non e' presente.
 	 */
 	public Attrezzo getAttrezzo(String nomeAttrezzo) {
 		for (Attrezzo attrezzo : this.attrezzi) {
