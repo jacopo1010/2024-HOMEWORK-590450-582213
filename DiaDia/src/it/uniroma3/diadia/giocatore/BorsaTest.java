@@ -1,6 +1,12 @@
 package it.uniroma3.diadia.giocatore;
 
 import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.junit.Test;
 
 import it.uniroma3.diadia.attrezzi.Attrezzo;
@@ -62,11 +68,37 @@ public class BorsaTest {
 		assertFalse(borsa.hasAttrezzo("Attrezzo4"));
 	}
 	@Test
-	public void tesBorsaPiena() {
+	public void testBorsaPiena() {
 		//questo test è valido anche per getAttrezzo
 		borsa.addAttrezzo(attrezzoTest4);
 		borsa.addAttrezzo(attrezzoTest4);
 		assertFalse(borsa.addAttrezzo(attrezzoTest1));
+	}
+	@Test
+	public void testSortedPeso() {
+		List<Attrezzo> sorted = new ArrayList<Attrezzo>();
+		sorted.add(attrezzoTest1);
+		sorted.add(attrezzoTest3);
+		sorted.add(attrezzoTest2);
+		sorted.add(attrezzoTest4);
+		borsa.addAttrezzo(attrezzoTest1);
+		borsa.addAttrezzo(attrezzoTest2);
+		borsa.addAttrezzo(attrezzoTest3);
+		borsa.addAttrezzo(attrezzoTest4);
+		assertEquals(sorted, borsa.getContenutoOrdinatoPerPeso());
+	}
+	@Test
+	public void testSortedNome() {
+		Set<Attrezzo> sorted = new HashSet<Attrezzo>(); //per il test uso un set che posso modificare liberamente senza preoccuparmi del comparatore
+		sorted.add(attrezzoTest1);
+		sorted.add(attrezzoTest2);
+		sorted.add(attrezzoTest3);
+		sorted.add(attrezzoTest4);
+		borsa.addAttrezzo(attrezzoTest1);
+		borsa.addAttrezzo(attrezzoTest3);
+		borsa.addAttrezzo(attrezzoTest4);
+		borsa.addAttrezzo(attrezzoTest2);
+		assertEquals(sorted, borsa.getContenutoOrdinatoPerNome());
 	}
 }
 

@@ -2,11 +2,17 @@ package it.uniroma3.diadia.giocatore;
 
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class Borsa {
 	public final static int DEFAULT_PESO_MAX_BORSA = 10;
-	private ArrayList<Attrezzo> attrezzi;
+	private List<Attrezzo> attrezzi;
 	private int pesoMax;
+	private Iterator<Attrezzo> it;
 
 	public Borsa() {
 		this(DEFAULT_PESO_MAX_BORSA);
@@ -34,9 +40,12 @@ public class Borsa {
 	}
 	
 	public Attrezzo getAttrezzo(String nomeAttrezzo) {
-		for (Attrezzo att : attrezzi) {
-			if(att.getNome().equals(nomeAttrezzo)) {
-				return att;
+		Attrezzo a = null;
+		it = attrezzi.iterator();
+		while(it.hasNext()) {
+			a = it.next();
+			if (a.getNome().equals(nomeAttrezzo)) {
+				return a;
 			}
 		}
 		return null;
@@ -44,8 +53,9 @@ public class Borsa {
 
 	public int getPeso() {
 		int peso = 0;
-		for (Attrezzo att : attrezzi) {
-			peso += att.getPeso();
+		it = attrezzi.iterator();
+		while(it.hasNext()) {
+			peso += it.next().getPeso();
 		}
 		return peso;
 	}
@@ -64,11 +74,13 @@ public class Borsa {
 	  * @return Attrezzo rimosso
 	  */
 	public Attrezzo removeAttrezzo(String nomeAttrezzo) {
-		for (Attrezzo att : attrezzi) {
-			if(att.getNome().equals(nomeAttrezzo)) {
-				Attrezzo rimosso = att;
-				attrezzi.remove(att);
-				return rimosso;
+		Attrezzo a = null;
+		it = attrezzi.iterator();
+		while(it.hasNext()) {
+			a = it.next();
+			if (a.getNome().equals(nomeAttrezzo)) {
+				attrezzi.remove(a);
+				return a;
 			}
 		}
 		return null;
@@ -87,5 +99,21 @@ public class Borsa {
 			attrezzi.forEach((a) -> s.append(a.toString()+" "));
 		}
 		return s.toString();
+	}
+	
+	/**
+	 * Restituisce la lista degli attrezzi nella borsa ordinati per peso e quindi, a parità di peso, per nome
+	 */
+	public List<Attrezzo> getContenutoOrdinatoPerPeso() {
+		List<Attrezzo> sorted = attrezzi;
+		sorted.sort((o1, o2) -> o1.getPeso() - o2.getPeso());
+		return sorted;
+	}
+	
+	public SortedSet<Attrezzo> getContenutoOrdinatoPerNome() {
+		Comparator<Attrezzo> comparatorePerNome = Comparator.comparing(Attrezzo::getNome);  //Comparatore che serve al SortedSet per ordinare per nome
+		SortedSet<Attrezzo> sorted = new TreeSet<>(comparatorePerNome);
+        sorted.addAll(attrezzi);
+		return sorted;
 	}
 }

@@ -2,14 +2,18 @@ package it.uniroma3.diadia.ambienti;
 
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.HashMap;
+import java.util.Iterator;
 
 public class StanzaProtected {
 	static final private int NUMERO_MASSIMO_DIREZIONI = 4;
 
 	protected String nome;
-	protected ArrayList<Attrezzo> attrezzi;
-	protected HashMap<String, Stanza> stanzeAdiacenti;
+	protected List<Attrezzo> attrezzi;
+	protected Map<String, Stanza> stanzeAdiacenti;
+	private Iterator<Attrezzo> it;
 
 	/**
 	 * Crea una stanza. Non ci sono stanze adiacenti, non ci sono attrezzi.
@@ -59,7 +63,7 @@ public class StanzaProtected {
 	 * Restituisce la collezione di attrezzi presenti nella stanza.
 	 * @return la collezione di attrezzi nella stanza.
 	 */
-	public ArrayList<Attrezzo> getAttrezzi() {
+	public List<Attrezzo> getAttrezzi() {
 		return this.attrezzi;
 	}
 
@@ -92,9 +96,11 @@ public class StanzaProtected {
 	 * @return true se l'attrezzo esiste nella stanza, false altrimenti.
 	 */
 	public boolean hasAttrezzo(String nomeAttrezzo) {
-		for (Attrezzo attrezzo : this.attrezzi) {
-			if (attrezzo.getNome().equals(nomeAttrezzo))
+		it = attrezzi.iterator();
+		while(it.hasNext()) {
+			if (it.next().getNome().equals(nomeAttrezzo)) {
 				return true;
+			}
 		}
 		return false;
 	}
@@ -105,9 +111,13 @@ public class StanzaProtected {
 	 * @return l'attrezzo presente nella stanza. null se l'attrezzo non e' presente.
 	 */
 	public Attrezzo getAttrezzo(String nomeAttrezzo) {
-		for (Attrezzo attrezzo : this.attrezzi) {
-			if (attrezzo.getNome().equals(nomeAttrezzo))
-				return attrezzo;
+		Attrezzo a = null;
+		it = attrezzi.iterator();
+		while(it.hasNext()) {
+			a = it.next();
+			if (a.getNome().equals(nomeAttrezzo)) {
+				return a;
+			}
 		}
 		return null;
 	}
