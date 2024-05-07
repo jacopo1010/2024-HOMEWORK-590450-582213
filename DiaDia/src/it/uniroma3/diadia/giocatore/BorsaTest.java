@@ -3,8 +3,10 @@ package it.uniroma3.diadia.giocatore;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.junit.Test;
@@ -99,6 +101,25 @@ public class BorsaTest {
 		borsa.addAttrezzo(attrezzoTest4);
 		borsa.addAttrezzo(attrezzoTest2);
 		assertEquals(sorted, borsa.getContenutoOrdinatoPerNome());
+	}
+	@Test
+	public void testSortedPesoMap() {
+		Map<Integer, Set<Attrezzo>> map = new HashMap<>();
+		Set<Attrezzo> set1 = new HashSet<Attrezzo>();
+		Set<Attrezzo> set2 = new HashSet<Attrezzo>();
+		Set<Attrezzo> set5 = new HashSet<Attrezzo>();
+		set1.add(attrezzoTest1);
+		set2.add(attrezzoTest2);
+		set1.add(attrezzoTest3);
+		set5.add(attrezzoTest4);
+		map.put(1, set1);
+		map.put(2, set2);
+		map.put(5, set5);
+		borsa.addAttrezzo(attrezzoTest1);
+		borsa.addAttrezzo(attrezzoTest2);
+		borsa.addAttrezzo(attrezzoTest3);
+		borsa.addAttrezzo(attrezzoTest4);
+		assertEquals(map, borsa.getContenutoRaggruppatoPerPeso());
 	}
 }
 

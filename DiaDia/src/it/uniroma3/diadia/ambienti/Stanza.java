@@ -33,8 +33,8 @@ public class Stanza {
      */
     public Stanza(String nome) {
         this.nome = nome;
-        this.stanzeAdiacenti = new HashMap<String, Stanza>(NUMERO_MASSIMO_DIREZIONI);
-        this.attrezzi = new ArrayList<Attrezzo>();
+        this.stanzeAdiacenti = new HashMap<>(NUMERO_MASSIMO_DIREZIONI);
+        this.attrezzi = new ArrayList<>();
     }
 
     /**

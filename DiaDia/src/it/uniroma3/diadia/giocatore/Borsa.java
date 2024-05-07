@@ -3,10 +3,16 @@ package it.uniroma3.diadia.giocatore;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class Borsa {
 	public final static int DEFAULT_PESO_MAX_BORSA = 10;
@@ -20,7 +26,7 @@ public class Borsa {
 
 	public Borsa(int pesoMax) {
 		this.pesoMax = pesoMax;
-		this.attrezzi = new ArrayList<Attrezzo>();
+		this.attrezzi = new ArrayList<>();
 	}
 	
 	/**
@@ -95,8 +101,15 @@ public class Borsa {
 			s.append("Borsa vuota");
 		}
 		else {
-			s.append("Contenuto borsa ("+this.getPeso()+"kg/"+this.getPesoMax()+"kg): ");
-			attrezzi.forEach((a) -> s.append(a.toString()+" "));
+			s.append("Contenuto borsa (" + this.getPeso() + "kg/" + this.getPesoMax() + "kg): ");
+			//this.getContenutoOrdinatoPerNome()
+			//this.getContenutoOrdinatoPerPeso().forEach((a) -> s.append(a.toString()+" "));
+			for(Map.Entry<Integer, Set<Attrezzo>> setAtt : this.getContenutoRaggruppatoPerPeso().entrySet()) {
+				s.append("\n" + setAtt.getKey() + "kg: ");
+				for(Attrezzo a : setAtt.getValue()) {
+					s.append(a.getNome() + " ");
+				}
+			}
 		}
 		return s.toString();
 	}
@@ -110,10 +123,35 @@ public class Borsa {
 		return sorted;
 	}
 	
+	/**
+	 * Restituisce l'insieme degli attrezzi nella borsa ordinati per nome
+	 * @return SortedSet(Attrezzo) ordinato per peso
+	 */
 	public SortedSet<Attrezzo> getContenutoOrdinatoPerNome() {
-		Comparator<Attrezzo> comparatorePerNome = Comparator.comparing(Attrezzo::getNome);  //Comparatore che serve al SortedSet per ordinare per nome
-		SortedSet<Attrezzo> sorted = new TreeSet<>(comparatorePerNome);
-        sorted.addAll(attrezzi);
+		Comparator<Attrezzo> comparatorePerNome = Comparator.comparing(Attrezzo::getNome); //Comparatore che serve al SortedSet per ordinare per nome
+		SortedSet<Attrezzo> sorted = new TreeSet<>(comparatorePerNome);		//Set inizializzato per usare il comparatore
+        sorted.addAll(attrezzi); 	//Aggiunge applicando automaticamente il sort
 		return sorted;
+	}
+	
+	/**
+	 * Restituisce una mappa che associa un intero (rappresentante un
+	 * peso) con l’insieme (comunque non vuoto) degli attrezzi di tale
+	 * peso: tutti gli attrezzi dell'insieme che figura come valore hanno
+	 * lo stesso peso pari all'intero che figura come chiave
+	 * @return Map(Int, Set(Attrezzo))
+	 */
+	public Map<Integer,Set<Attrezzo>> getContenutoRaggruppatoPerPeso() {
+		Set<Attrezzo> tmp;
+		Map<Integer, Set<Attrezzo>> mapPeso = new HashMap<>();
+	    for (Attrezzo a : attrezzi) {
+	    	tmp = mapPeso.get(a.getPeso()); //prende il set all'interno di mapPeso relativo al peso corretto
+	    	if(tmp == null) {
+	    		tmp = new HashSet<>();		//se non esiste il set relativo al peso ne crea uno nuovo
+	    	}
+	    	tmp.add(a);						//aggiunge l'attrezzo al set relativo al peso
+	        mapPeso.put(a.getPeso(), tmp);	//inserisce il set (sostituendolo se già presente) all'interno del map associato al peso
+	    }
+		return mapPeso;
 	}
 }
