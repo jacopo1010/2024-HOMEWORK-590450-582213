@@ -3,11 +3,14 @@ package it.uniroma3.diadia.giocatore;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import org.junit.Test;
 
@@ -91,16 +94,11 @@ public class BorsaTest {
 	}
 	@Test
 	public void testSortedNome() {
-		Set<Attrezzo> sorted = new HashSet<Attrezzo>(); //per il test uso un set che posso modificare liberamente senza preoccuparmi del comparatore
-		sorted.add(attrezzoTest1);
-		sorted.add(attrezzoTest2);
-		sorted.add(attrezzoTest3);
-		sorted.add(attrezzoTest4);
 		borsa.addAttrezzo(attrezzoTest1);
 		borsa.addAttrezzo(attrezzoTest3);
 		borsa.addAttrezzo(attrezzoTest4);
 		borsa.addAttrezzo(attrezzoTest2);
-		assertEquals(sorted, borsa.getContenutoOrdinatoPerNome());
+		assertEquals("[Attrezzo1 (1kg), Attrezzo2 (2kg), Attrezzo3 (1kg), Attrezzo4 (5kg)]", borsa.getContenutoOrdinatoPerNome().toString());
 	}
 	@Test
 	public void testSortedPesoMap() {

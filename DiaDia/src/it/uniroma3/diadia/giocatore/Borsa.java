@@ -102,7 +102,7 @@ public class Borsa {
 		}
 		else {
 			s.append("Contenuto borsa (" + this.getPeso() + "kg/" + this.getPesoMax() + "kg): ");
-			//this.getContenutoOrdinatoPerNome()
+			this.getContenutoOrdinatoPerNome().forEach((a) -> s.append(a.toString() + " "));
 			//this.getContenutoOrdinatoPerPeso().forEach((a) -> s.append(a.toString()+" "));
 			for(Map.Entry<Integer, Set<Attrezzo>> setAtt : this.getContenutoRaggruppatoPerPeso().entrySet()) {
 				s.append("\n" + setAtt.getKey() + "kg: ");
