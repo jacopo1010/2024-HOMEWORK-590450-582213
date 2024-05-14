@@ -1,4 +1,4 @@
-package it.uniroma3.diadia.ambienti;
+ package it.uniroma3.diadia.ambienti;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class StanzaBloccata extends Stanza{

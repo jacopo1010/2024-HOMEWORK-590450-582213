@@ -8,7 +8,7 @@ public class Borsa {
 	private int numeroAttrezzi;
 	private int pesoMax;
 
-	public Borsa() {
+	public Borsa() { 
 		this(DEFAULT_PESO_MAX_BORSA);
 	}
 
