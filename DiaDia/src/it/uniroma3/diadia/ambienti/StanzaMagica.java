@@ -4,7 +4,6 @@ import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class StanzaMagica extends Stanza{
 	final static private int SOGLIA_MAGICA_DEFAULT = 3;
-	private int contatoreAttrezziPosati;
 	private int sogliaMagica;
 	
 	public StanzaMagica(String nome) {
@@ -12,29 +11,22 @@ public class StanzaMagica extends Stanza{
 	}
 	public StanzaMagica(String nome, int soglia) {
 		super(nome);
-		this.contatoreAttrezziPosati = 0;
 		this.sogliaMagica = soglia;
 	}
 	@Override
 	public boolean addAttrezzo(Attrezzo attrezzo) {
-		this.contatoreAttrezziPosati++;
-		if (this.contatoreAttrezziPosati > this.sogliaMagica)
-		attrezzo = this.modificaAttrezzo(attrezzo);
-		if (this.numeroAttrezzi<this.attrezzi.length) {
-		this.attrezzi[this.numeroAttrezzi] = attrezzo;
-		this.numeroAttrezzi++;
-		return true;
+		if ((this.attrezzi.size() + 1) > this.sogliaMagica) {
+			attrezzo = this.modificaAttrezzo(attrezzo);
 		}
-		else return false;
+		attrezzi.add(attrezzo);
+		return true;
 	}
 
 	private Attrezzo modificaAttrezzo(Attrezzo attrezzo) {
-		StringBuilder nomeInvertito;
+		StringBuilder nomeInvertito = new StringBuilder(attrezzo.getNome());
 		int pesoX2 = attrezzo.getPeso() * 2;
-		nomeInvertito = new StringBuilder(attrezzo.getNome());
 		nomeInvertito = nomeInvertito.reverse();
-		attrezzo = new Attrezzo(nomeInvertito.toString(),
-				pesoX2);
+		attrezzo = new Attrezzo(nomeInvertito.toString(), pesoX2);
 		return attrezzo;
 	}
 }

@@ -1,7 +1,5 @@
 package it.uniroma3.diadia.ambienti;
 
-import it.uniroma3.diadia.attrezzi.Attrezzo;
-
 public class StanzaBuia extends Stanza{
 	private String nomeAttrezzoLuce;
 
@@ -15,27 +13,20 @@ public class StanzaBuia extends Stanza{
 		if (isIlluminato()) {
 			stringa.append("la stanza e' illuminata da: " + this.nomeAttrezzoLuce);
 			stringa.append("\nUscite: ");
-			for (String direzione : super.getDirezioni())
-				if (direzione!=null)
-					stringa.append(" " + direzione);
-			stringa.append("\nAttrezzi nella stanza: ");
-			for (Attrezzo attrezzo : this.attrezzi) {
-				if(attrezzo != null)                         
-					stringa.append(attrezzo.toString()+" ");
+			for (String direzione : super.getDirezioni()) {
+				stringa.append(" " + direzione);
 			}
+			stringa.append("\nAttrezzi nella stanza: ");
+			attrezzi.forEach((a) -> stringa.append(a.toString()+" "));
 		}
 		else {
 			stringa.append("qui c'è buio pesto");
 		}
-
 		return stringa.toString();
 	}
 	
 	public Boolean isIlluminato() {
-		if (hasAttrezzo(nomeAttrezzoLuce) == true) {
-			return true;
-		}
-		return false;
+		return hasAttrezzo(nomeAttrezzoLuce);
 	}
 
 }
