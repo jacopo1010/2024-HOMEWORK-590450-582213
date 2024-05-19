@@ -1,5 +1,6 @@
 package it.uniroma3.diadia.giocatore;
 
+
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -28,7 +29,7 @@ public class Borsa {
 		this.pesoMax = pesoMax;
 		this.attrezzi = new ArrayList<>();
 	}
-	
+
 	/**
 	 * Aggiunge un attrezzo nella borsa
 	 * @param attrezzo
@@ -40,11 +41,11 @@ public class Borsa {
 		}
 		return attrezzi.add(attrezzo);
 	}
-	
+
 	public int getPesoMax() {
 		return pesoMax;
 	}
-	
+
 	public Attrezzo getAttrezzo(String nomeAttrezzo) {
 		Attrezzo a = null;
 		it = attrezzi.iterator();
@@ -65,20 +66,20 @@ public class Borsa {
 		}
 		return peso;
 	}
-	
+
 	public boolean isEmpty() {
 		return attrezzi.isEmpty();
 	}
-	
+
 	public boolean hasAttrezzo(String nomeAttrezzo) {
 		return this.getAttrezzo(nomeAttrezzo)!=null;
 	}
-	
-	 /**
-	  * Prende il nome dell'attrezzo che si vuole rimuovere e elimina il primo trovato
-	  * @param nomeAttrezzo
-	  * @return Attrezzo rimosso
-	  */
+
+	/**
+	 * Prende il nome dell'attrezzo che si vuole rimuovere e elimina il primo trovato
+	 * @param nomeAttrezzo
+	 * @return Attrezzo rimosso
+	 */
 	public Attrezzo removeAttrezzo(String nomeAttrezzo) {
 		Attrezzo a = null;
 		it = attrezzi.iterator();
@@ -91,7 +92,7 @@ public class Borsa {
 		}
 		return null;
 	}
-	
+
 	/**
 	 * Crea una stringa con il contenuto della borsa e il suo peso
 	 */
@@ -113,7 +114,7 @@ public class Borsa {
 		}
 		return s.toString();
 	}
-	
+
 	/**
 	 * Restituisce la lista degli attrezzi nella borsa ordinati per peso e quindi, a parità di peso, per nome
 	 */
@@ -122,7 +123,7 @@ public class Borsa {
 		sorted.sort((o1, o2) -> o1.getPeso() - o2.getPeso());
 		return sorted;
 	}
-	
+
 	/**
 	 * Restituisce l'insieme degli attrezzi nella borsa ordinati per nome
 	 * @return SortedSet(Attrezzo) ordinato per peso
@@ -130,10 +131,10 @@ public class Borsa {
 	public SortedSet<Attrezzo> getContenutoOrdinatoPerNome() {
 		Comparator<Attrezzo> comparatorePerNome = Comparator.comparing(Attrezzo::getNome); //Comparatore che serve al SortedSet per ordinare per nome
 		SortedSet<Attrezzo> sorted = new TreeSet<>(comparatorePerNome);		//Set inizializzato per usare il comparatore
-        sorted.addAll(attrezzi); 	//Aggiunge applicando automaticamente il sort
+		sorted.addAll(attrezzi); 	//Aggiunge applicando automaticamente il sort
 		return sorted;
 	}
-	
+
 	/**
 	 * Restituisce una mappa che associa un intero (rappresentante un
 	 * peso) con l’insieme (comunque non vuoto) degli attrezzi di tale
@@ -144,14 +145,26 @@ public class Borsa {
 	public Map<Integer,Set<Attrezzo>> getContenutoRaggruppatoPerPeso() {
 		Set<Attrezzo> tmp;
 		Map<Integer, Set<Attrezzo>> mapPeso = new HashMap<>();
-	    for (Attrezzo a : attrezzi) {
-	    	tmp = mapPeso.get(a.getPeso()); //prende il set all'interno di mapPeso relativo al peso corretto
-	    	if(tmp == null) {
-	    		tmp = new HashSet<>();		//se non esiste il set relativo al peso ne crea uno nuovo
-	    	}
-	    	tmp.add(a);						//aggiunge l'attrezzo al set relativo al peso
-	        mapPeso.put(a.getPeso(), tmp);	//inserisce il set (sostituendolo se già presente) all'interno del map associato al peso
-	    }
+		for (Attrezzo a : attrezzi) {
+			tmp = mapPeso.get(a.getPeso()); //prende il set all'interno di mapPeso relativo al peso corretto
+			if(tmp == null) {
+				tmp = new HashSet<>();		//se non esiste il set relativo al peso ne crea uno nuovo
+			}
+			tmp.add(a);						//aggiunge l'attrezzo al set relativo al peso
+			mapPeso.put(a.getPeso(), tmp);	//inserisce il set (sostituendolo se già presente) all'interno del map associato al peso
+		}
 		return mapPeso;
+	}
+
+	/**
+	 * Metodo che restituisce l'insieme ordinato
+	 * (sortedSet) per peso.
+	 * di conseguenza restituira' a parita di peso il nome
+	 */
+	public SortedSet<Attrezzo> getSortedSetOrdinatoPerPeso() {
+		ComparatoreDiPesiDegliAttrezzi comparatore = new ComparatoreDiPesiDegliAttrezzi();
+		SortedSet<Attrezzo> ordinatiPeso = new TreeSet<Attrezzo>(comparatore);
+		ordinatiPeso.addAll(attrezzi);
+		return ordinatiPeso;
 	}
 }

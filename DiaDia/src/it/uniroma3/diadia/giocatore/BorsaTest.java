@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.junit.Test;
@@ -115,9 +116,19 @@ public class BorsaTest {
 		map.put(5, set5);
 		borsa.addAttrezzo(attrezzoTest1);
 		borsa.addAttrezzo(attrezzoTest2);
-		borsa.addAttrezzo(attrezzoTest3);
+		borsa.addAttrezzo(attrezzoTest1);
 		borsa.addAttrezzo(attrezzoTest4);
 		assertEquals(map, borsa.getContenutoRaggruppatoPerPeso());
+	}
+	
+	@Test
+	public void TestOrdinatoPerPesoSortedEsercizio4() {
+		Borsa borsa = new Borsa();
+		borsa.addAttrezzo(attrezzoTest4);
+		borsa.addAttrezzo(attrezzoTest2);
+		borsa.addAttrezzo(attrezzoTest1);
+		borsa.addAttrezzo(attrezzoTest1);
+		assertEquals("[Attrezzo1 (1kg), Attrezzo1 (1kg), Attrezzo2 (2kg), Attrezzo4 (5kg)]",borsa.getContenutoOrdinatoPerPeso().toString());
 	}
 }
 
