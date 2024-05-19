@@ -36,6 +36,9 @@ public class Partita {
 		return this.stanzaCorrente;
 	}
 	
+	public void setLabirinto(Labirinto labirinto) {
+		this.labirinto = labirinto;
+	}	
 	
 	/**
 	 * Restituisce vero se e solo se la partita e' stata vinta
@@ -77,5 +80,8 @@ public class Partita {
 			return false;
 		}
 		return true;
-	}	
+	}
+
+
+	
 }

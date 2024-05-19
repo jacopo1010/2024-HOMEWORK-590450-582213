@@ -116,7 +116,7 @@ public class BorsaTest {
 		map.put(5, set5);
 		borsa.addAttrezzo(attrezzoTest1);
 		borsa.addAttrezzo(attrezzoTest2);
-		borsa.addAttrezzo(attrezzoTest1);
+		borsa.addAttrezzo(attrezzoTest3);
 		borsa.addAttrezzo(attrezzoTest4);
 		assertEquals(map, borsa.getContenutoRaggruppatoPerPeso());
 	}
