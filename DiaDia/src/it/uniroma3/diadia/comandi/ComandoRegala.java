@@ -32,7 +32,7 @@ public class ComandoRegala implements Comando{
 				io.mostraMessaggio("Attrezzo inesistente");
 			else {
 				partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
-				io.mostraMessaggio("Hai regalato l'attrezzo al mago");
+				io.mostraMessaggio("Hai regalato l'attrezzo al personagio:"+ partita.getStanzaCorrente().getPersonaggio().getNome());
 				partita.getStanzaCorrente().getPersonaggio().riceviRegalo(appAttrezzo);
 				partita.getStanzaCorrente().getPersonaggio().agisci(partita);
 			}

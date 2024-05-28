@@ -43,6 +43,9 @@ public class FabbricaDiComandiFisarmonica implements FabbricaDiComandi{
 			case"regala":
 				comando = new ComandoRegala(parametro, io);
 				break;
+			case"interagisci":
+				comando = new ComandoInteragisci(io);
+				break;
 			default:
 				comando = new ComandoNonValido(io);
 				break;
