@@ -14,7 +14,7 @@ public class TestFabbricaFisarmonica {
 	IO io = new IOConsole();
 	
 	@Test
-	public void testPrendi() {
+	public void testPrendi() throws Exception {
 		Comando comandoDaEseguire;
 		FabbricaDiComandi factory = new FabbricaDiComandiFisarmonica();
 		comandoDaEseguire = factory.costruisciComando("prendi", io);

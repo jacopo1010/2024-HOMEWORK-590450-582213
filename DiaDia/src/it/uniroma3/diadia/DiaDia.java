@@ -38,7 +38,7 @@ public class DiaDia {
 		this.io = io;
 	}
 
-	public void gioca() {
+	public void gioca() throws Exception {
 		io.mostraMessaggio(MESSAGGIO_BENVENUTO);
 
 		String istruzione;
@@ -52,8 +52,9 @@ public class DiaDia {
 	 * Processa una istruzione 
 	 *
 	 * @return true se l'istruzione e' eseguita e il gioco continua, false altrimenti
+	 * @throws Exception 
 	 */
-	private boolean processaIstruzione(String istruzione) {
+	private boolean processaIstruzione(String istruzione) throws Exception {
 		Comando comandoDaEseguire;
 		FabbricaDiComandi factory = new FabbricaDiComandiFisarmonica();
 		comandoDaEseguire = factory.costruisciComando(istruzione, io);
@@ -73,7 +74,7 @@ public class DiaDia {
 
 
 
-	public static void main(String[] argc) {
+	public static void main(String[] argc) throws Exception {
 		IO io = new IOConsole();
 		Labirinto labirinto = new LabirintoBuilder()
 				.addStanzaIniziale("LabCampusOne")
