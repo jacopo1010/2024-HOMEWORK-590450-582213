@@ -10,7 +10,7 @@ import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.IOConsole.IOConsole;
 
 public class TestFabbricaFisarmonica {
-	Partita partita = new Partita();
+	Partita partita = new Partita(null);
 	IO io = new IOConsole();
 	
 	@Test

@@ -11,7 +11,7 @@ import it.uniroma3.diadia.IOConsole.IOConsole;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
 public class TestComandoPosa {
-	Partita partita = new Partita();
+	Partita partita = new Partita(null);
 	IO io = new IOConsole();
 	
 	@Test
