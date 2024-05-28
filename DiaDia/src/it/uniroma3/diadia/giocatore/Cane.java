@@ -33,7 +33,7 @@ public class Cane extends AbstractPersonaggio{
 	}
 
 	@Override
-	public String riceviRegalo(Attrezzo attrezzo) {
+	public String riceviRegalo(Attrezzo attrezzo,Partita partita) {
 		if (attrezzo.getNome().equals("osso")) {
 			return new String("osso");
 		}
