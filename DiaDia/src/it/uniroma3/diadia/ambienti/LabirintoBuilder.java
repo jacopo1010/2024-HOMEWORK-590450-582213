@@ -1,7 +1,6 @@
 package it.uniroma3.diadia.ambienti;
 
 import java.util.LinkedList;
-import java.util.List;
 
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
