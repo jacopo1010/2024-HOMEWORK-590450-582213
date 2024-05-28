@@ -19,8 +19,8 @@ public class Cane extends AbstractPersonaggio{
 	public String agisci(Partita partita) {
 		String msg;
 		if(this.attrezzo != null)
-		this.riceviRegalo(attrezzo);
-		if(this.riceviRegalo(attrezzo).equals("osso")) {
+		this.riceviRegalo(attrezzo,partita);
+		if(this.riceviRegalo(attrezzo,partita).equals("osso")) {
 			partita.getStanzaCorrente().addAttrezzo(this.attrezzo);
 			this.attrezzo = null;
 			msg = MESSAGGIO_DONO;	
