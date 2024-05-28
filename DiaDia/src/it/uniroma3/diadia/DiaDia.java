@@ -33,8 +33,7 @@ public class DiaDia {
 	public IO io;
 
 	public DiaDia(IO io,Labirinto labirinto) {
-		this.partita = new Partita();
-		this.partita.setLabirinto(labirinto);;
+		this.partita = new Partita(labirinto);
 		this.io = io;
 	}
 
@@ -81,8 +80,26 @@ public class DiaDia {
 				.addStanzaVincente("Biblioteca")
 				.addAdiacenza("LabCampusOne","Biblioteca","ovest")
 				.getLabirinto();
+		Labirinto monolocale = new LabirintoBuilder()
+				.addStanzaIniziale("salotto") // aggiunge una stanza, che sarà anche iniziale
+				.addStanzaVincente("salotto") // specifica quala stanza sarà vincente
+				.getLabirinto(); // restituisce il Labirinto così specificato
+		Labirinto bilocale = new LabirintoBuilder()
+				.addStanzaIniziale("salotto")
+				.addStanzaVincente("camera")
+				.addAttrezzo("letto",10) // dove? fa riferimento all’ultima stanza aggiunta: la “camera”
+				.addAdiacenza("salotto", "camera", "nord") // camera si trova a nord di salotto
+				.getLabirinto(); // restituisce il Labirinto così specificato
+		Labirinto trilocale = new LabirintoBuilder()
+				.addStanzaIniziale("salotto")
+				.addStanzaGenerica("cucina")
+				.addAttrezzo("pentola",1) // dove? fa riferimento all’ultima stanza aggiunta: la “cucina”
+				.addStanzaVincente("camera")
+				.addAdiacenza("salotto", "cucina", "nord")
+				.addAdiacenza("cucina", "camera", "est")
+				.getLabirinto(); // restituisce il Labirinto così specificato
 
-		DiaDia gioco = new DiaDia(io,labirinto);
+		DiaDia gioco = new DiaDia(io,bilocale);
 		gioco.gioca();
 	}
 }
