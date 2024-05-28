@@ -20,23 +20,9 @@ public class ComandoRegala implements Comando{
 
 	@Override
 	public void esegui(Partita partita) {
-		if(partita.getStanzaCorrente().getPersonaggio() == null) {
-			io.mostraMessaggio("Non c'e nessun personaggio all'"
-					+ "interno della stanza");
-		}else {
-			if(nomeAttrezzo == null)
-				io.mostraMessaggio("Quale attrezzo vuoi regalare ? ");
-			Attrezzo appAttrezzo = null;
-			appAttrezzo = partita.getGiocatore().getBorsa().getAttrezzo(nomeAttrezzo);
-			if (appAttrezzo == null) 
-				io.mostraMessaggio("Attrezzo inesistente");
-			else {
-				partita.getGiocatore().getBorsa().removeAttrezzo(nomeAttrezzo);
-				io.mostraMessaggio("Hai regalato l'attrezzo al personagio:"+ partita.getStanzaCorrente().getPersonaggio().getNome());
-				partita.getStanzaCorrente().getPersonaggio().riceviRegalo(appAttrezzo);
-				partita.getStanzaCorrente().getPersonaggio().agisci(partita);
-			}
-		}
+		Attrezzo attrezzo = partita.getGiocatore().getBorsa().getAttrezzo(this.getParametro());
+		io.mostraMessaggio(partita.getStanzaCorrente().getPersonaggio().riceviRegalo(attrezzo, partita));
+		partita.getGiocatore().getBorsa().removeAttrezzo(this.getParametro());
 	}
 
 	@Override

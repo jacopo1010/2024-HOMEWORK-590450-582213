@@ -18,7 +18,7 @@ public class Strega extends AbstractPersonaggio{
 	}
 
 	@Override
-	public String riceviRegalo(Attrezzo attrezzo) {
+	public String riceviRegalo(Attrezzo attrezzo,Partita partita) {
 		// TODO Auto-generated method stub
 		return null;
 	}

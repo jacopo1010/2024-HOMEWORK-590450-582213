@@ -47,5 +47,5 @@ public abstract class AbstractPersonaggio {
 		return this.getNome();
 		}
 		
-		public abstract String riceviRegalo(Attrezzo attrezzo);
+		public abstract String riceviRegalo(Attrezzo attrezzo,Partita partita);
 }

@@ -19,7 +19,7 @@ public class Mago extends AbstractPersonaggio{
 	public String agisci(Partita partita) {
 		String msg;
 		if (this.attrezzo!=null) {
-			this.riceviRegalo(attrezzo);
+			this.riceviRegalo(attrezzo,partita);
 			partita.getStanzaCorrente().addAttrezzo(this.attrezzo);
 			this.attrezzo = null;
 			msg = MESSAGGIO_DONO;
@@ -31,7 +31,7 @@ public class Mago extends AbstractPersonaggio{
 	}
 
 	@Override
-	public String riceviRegalo(Attrezzo attrezzo) {
+	public String riceviRegalo(Attrezzo attrezzo,Partita partita) {
 		attrezzo.setPeso(attrezzo.getPeso()/2);
 		return new String("Grazie ho effettuato un'incantesimo sul tuo attrezzo "
 				+ "ora il suo peso e' dimezzato");
