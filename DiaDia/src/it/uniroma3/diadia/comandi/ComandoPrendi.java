@@ -5,7 +5,7 @@ import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
-public class ComandoPrendi implements Comando {
+public class ComandoPrendi extends AbstractComando implements Comando {
 	private String nomeAttrezzo;
 	
 	private IO io;
@@ -29,11 +29,6 @@ public class ComandoPrendi implements Comando {
 			io.mostraMessaggio("Hai inserito l'attrezzo in borsa");
 		}
 
-	}
-
-	@Override
-	public void setParametro(String parametro) {
-		 
 	}
 
 	@Override

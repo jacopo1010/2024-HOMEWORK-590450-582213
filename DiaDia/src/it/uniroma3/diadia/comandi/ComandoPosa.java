@@ -5,7 +5,7 @@ import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.attrezzi.Attrezzo;
 
-public class ComandoPosa implements Comando {
+public class ComandoPosa extends AbstractComando implements Comando {
 	private String nomeAttrezzo;
 	
 	private IO io;
@@ -29,12 +29,6 @@ public class ComandoPosa implements Comando {
 			partita.getStanzaCorrente().addAttrezzo(appAttrezzo);
 			io.mostraMessaggio("Hai posato l'attrezzo");
 		}
-	}
-
-	@Override
-	public void setParametro(String parametro) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

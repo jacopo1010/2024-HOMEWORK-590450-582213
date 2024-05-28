@@ -4,7 +4,7 @@ import it.uniroma3.diadia.Comando;
 import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.Partita;
 
-public class ComandoInventario implements Comando{
+public class ComandoInventario extends AbstractComando implements Comando{
 	private IO io;
 	
 	public ComandoInventario(IO io) {
@@ -15,12 +15,6 @@ public class ComandoInventario implements Comando{
 	public void esegui(Partita partita) {
 		io.mostraMessaggio("Apri la tua borsa e trovi: ");
 		io.mostraMessaggio(partita.getGiocatore().getBorsa().toString());
-	}
-
-	@Override
-	public void setParametro(String parametro) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override

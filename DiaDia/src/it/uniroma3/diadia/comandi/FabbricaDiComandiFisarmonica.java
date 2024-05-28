@@ -18,34 +18,33 @@ public class FabbricaDiComandiFisarmonica implements FabbricaDiComandi{
 			parametro = scannerDiParole.next();		// seconda parola: eventuale param.
 		scannerDiParole.close();					// evita resource leak chiudendo lo scanner
         if(nomeComando != null)
-			switch (nomeComando) {
-			case "fine":
-				comando = new ComandoFine(io);
-				break;
-			case "vai":
-				comando = new ComandoVai(parametro, io);
-				break;
-			case "aiuto":
-				comando = new ComandoAiuto(io);
-				break;
-			case "posa":
-				comando = new ComandoPosa(parametro, io);
-				break;
-			case "inventario":
-				comando = new ComandoInventario(io);
-				break;
-			case "prendi":
-				comando = new ComandoPrendi(parametro, io);
-				break;
-			case "guarda":
-				comando = new ComandoGuarda(io);
-				break;
-			default:
-				comando = new ComandoNonValido(io);
-				break;
-			}
-		if(comando != null)
-		comando.setParametro(parametro);
+        	switch (nomeComando) {
+        	case "fine":
+        		comando = new ComandoFine(io);
+        		break;
+        	case "vai":
+        		comando = new ComandoVai(parametro, io);
+        		break;
+        	case "aiuto":
+        		comando = new ComandoAiuto(io);
+        		break;
+        	case "posa":
+        		comando = new ComandoPosa(parametro, io);
+        		break;
+        	case "inventario":
+        		comando = new ComandoInventario(io);
+        		break;
+        	case "prendi":
+        		comando = new ComandoPrendi(parametro, io);
+        		break;
+        	case "guarda":
+        		comando = new ComandoGuarda(io);
+        		break;
+        	default:
+        		comando = new ComandoNonValido(io);
+        		break;
+        	}
+        if(comando != null) comando.setParametro(parametro);
 		return comando;
 	}
 }

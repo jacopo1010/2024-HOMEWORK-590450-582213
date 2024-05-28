@@ -5,7 +5,7 @@ import it.uniroma3.diadia.IO;
 import it.uniroma3.diadia.Partita;
 import it.uniroma3.diadia.ambienti.Stanza;
 
-public class ComandoGuarda implements Comando {
+public class ComandoGuarda extends AbstractComando implements Comando {
 	private IO io;
 	
 	public ComandoGuarda(IO io) {
@@ -17,13 +17,6 @@ public class ComandoGuarda implements Comando {
 	Stanza guardaStanza = partita.getStanzaCorrente();
 	io.mostraMessaggio(guardaStanza.getDescrizione());
     io.mostraMessaggio("Cfu in possesso: " + partita.getGiocatore().getCfu());
-	}
-	
-
-	@Override
-	public void setParametro(String parametro) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
